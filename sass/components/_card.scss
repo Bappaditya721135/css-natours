@@ -1,0 +1,135 @@
+.card {
+    perspective: 100rem;
+    -ms-perspective: 100rem;
+    position: relative;
+    height: 52rem;
+
+    &__side {
+        height: 52rem;
+        transition: all 0.8s ease;
+        font-size: 2rem;
+        position: absolute;
+        width: 100%;
+        border-radius: 3px;
+        overflow: hidden;
+        backface-visibility: hidden;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+        &--front {
+            background-color: $color-white;
+        }
+        &--back {
+            transform: rotateY(180deg);
+
+            &-1 {
+                background-image: linear-gradient(to right bottom, $color-secondary-lite, $color-secondary-dark);
+            }
+            &-2 {
+                background-image: linear-gradient(to right bottom, $color-primary, $color-primary-lite);
+            }
+            &-3 {
+                background-image: linear-gradient(to right bottom, $color-tertiary-lite, $color-tertiary-dark);
+            }
+        }
+    }
+
+    &:hover > &__side--front {
+        transform: rotateY(-180deg);
+    }
+    &:hover > &__side--back {
+        transform: rotateY(0);
+    }
+
+
+    // card front side 
+    &__picture {
+        background-size: cover;
+        height: 23rem;
+        background-blend-mode: screen;
+        -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 100%);
+        clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 100%);
+        border-radius: 3px 3px 0 0;
+        &--1 {
+            background-image: linear-gradient(to right bottom, $color-secondary-lite, $color-secondary-dark),
+            url(../../img/nat-5.jpg);
+        }
+        &--2 {
+            background-image: linear-gradient(to right bottom, $color-primary-lite, $color-primary),
+            url(../../img/nat-6.jpg);
+        }
+        &--3 {
+            background-image: linear-gradient(to right bottom, $color-tertiary-lite, $color-tertiary-dark),
+            url(../../img/nat-7.jpg);
+        }
+    }
+
+    &__heading {
+        font-size: 2.8rem;
+        font-weight: 500;
+        color: white;
+        text-transform: uppercase;
+        position: absolute;
+        top: 14rem;
+        right: 2rem;
+        text-align: right;
+        width: 75%;
+    }
+
+    &__heading-span {
+        padding: 0.5rem 1.5rem;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        &--1 {
+            background-image: linear-gradient(to right bottom, rgba($color-secondary-lite, 0.8), rgba($color-secondary-dark, 0.8));
+        }
+        &--2 {
+            background-image: linear-gradient(to right bottom, rgba($color-primary-lite, 0.8), rgba($color-primary, 0.8));
+        }
+        &--3 {
+            background-image: linear-gradient(to right bottom, rgba($color-tertiary-lite, 0.8), rgba($color-tertiary-dark, 0.8));
+        }
+    }
+
+    &__details {
+        padding: 3rem;
+        ul {
+            width: 80%;
+            margin: 0 auto;
+
+            li {
+                list-style-type: none;
+                text-align: center;
+                padding: 1rem;
+                font-size: 1.6rem;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid $color-gray-lite-2;
+                }
+            }
+        }
+    }
+
+
+
+    // back side 
+    &__cta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 90%;
+    }
+    &__price--box {
+        margin-bottom: 8rem;
+        color: white;
+    }
+    &__price--only {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+    &__price--value {
+        font-size: 6rem;
+        font-weight: 200;
+    }
+}
